@@ -1,0 +1,6 @@
+venv/
+.venv/
+__pycache__/
+.matplotlib/
+.DS_Store
+review_backup_20260911/
