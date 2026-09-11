@@ -43,7 +43,7 @@ The results made the distinction between an objective and an outcome useful. Min
 
 \section{Data and Evaluation Design}
 \subsection{A Fixed ETF Universe}
-The data consist of adjusted daily closing prices downloaded from Yahoo Finance through \texttt{yfinance}, with automatic price adjustment enabled \cite{yfinance}. The saved prices cover January 3, 2007 through December 30, 2024. The download's December 31 end date is exclusive. Simple returns are
+The data consist of adjusted daily closing prices downloaded from Yahoo Finance through \texttt{yfinance}, with automatic price adjustment enabled. The saved prices cover January 3, 2007 through December 30, 2024. The download's December 31 end date is exclusive. Simple returns are
 \begin{equation}
  r_{i,t}=P_{i,t}/P_{i,t-1}-1.
 \end{equation}
@@ -270,20 +270,19 @@ I began with the question of whether allocation constraints help portfolio rules
 Maximum Sharpe makes the cost of implementation especially visible. It trades the most and loses the most CAGR to costs, but it already trails simpler rules before those costs are charged. Its favorable 2020 path also keeps the conclusion from becoming too broad. I would read these results as evidence that an allocation objective, its constraints, and its realized performance need to be examined separately, rather than as a recommendation to use one rule in every setting.
 
 \section*{Reproducibility}
-The paper uses the saved returns and analysis outputs in the project's \texttt{data/} and \texttt{results/} folders. Running \texttt{run\_analysis.py} produces the main, no-cap, and cost-sensitivity comparisons. Running \texttt{make\_plots.py} reads those outputs and saves PNG figures. The price download is handled by \texttt{fetch.py}; a later download may contain provider revisions. The existing synthetic checks in \texttt{test\_backtest.py} cover constraints, rebalance timing, drift, costs, metric definitions, risk parity on a diagonal covariance matrix, and future-data isolation. They verify implementation properties rather than the economic reliability of the results.
+The code and paper are available in the project repository \cite{repository}. The paper uses the saved returns and analysis outputs in the project's \texttt{data/} and \texttt{results/} folders. Running \texttt{run\_analysis.py} produces the main, no-cap, and cost-sensitivity comparisons. Running \texttt{make\_plots.py} reads those outputs and saves PNG figures. The price download is handled by \texttt{fetch.py}; a later download may contain provider revisions. The existing synthetic checks in \texttt{test\_backtest.py} cover constraints, rebalance timing, drift, costs, metric definitions, risk parity on a diagonal covariance matrix, and future-data isolation. They verify implementation properties rather than the economic reliability of the results.
 
 \balance
 \begin{thebibliography}{4}
 \bibitem{jagannathan}
 R. Jagannathan and T. Ma, ``Risk reduction in large portfolios: Why imposing the wrong constraints helps,'' \emph{Journal of Finance}, vol. 58, no. 4, pp. 1651--1684, 2003. Working paper available: \url{https://www.nber.org/papers/w8922}.
 
-\bibitem{yfinance}
-\emph{yfinance documentation}, ``yfinance.download.'' [Online]. Available: \url{https://ranaroussi.github.io/yfinance/reference/api/yfinance.download.html}.
-
 \bibitem{maillard}
 S. Maillard, T. Roncalli, and J. Teiletche, ``The properties of equally weighted risk contribution portfolios,'' \emph{Journal of Portfolio Management}, vol. 36, no. 4, pp. 60--70, 2010. Author manuscript available: \url{https://www.thierry-roncalli.com/download/erc.pdf}.
 
 \bibitem{sharpe}
 W. F. Sharpe, ``The Sharpe ratio,'' \emph{Journal of Portfolio Management}, vol. 21, no. 1, pp. 49--58, 1994. Available: \url{https://web.stanford.edu/~wfsharpe/art/sr/sr.htm}.
+\bibitem{repository}
+R. Sunilkumar, ``Allocation constraints,'' GitHub repository. [Online]. Available: \url{https://github.com/rahulsunilkumar/allocation-constraints}.
 \end{thebibliography}
 \end{document}
